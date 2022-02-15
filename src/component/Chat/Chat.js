@@ -9,7 +9,8 @@ import closeIcon from "../../images/closeIcon.png";
 
 let socket;
 
-const ENDPOINT = "https://moons17.herokuapp.com/";
+const ENDPOINT = "https://serverchat17.herokuapp.com/";
+
 const Chat = () => {
     const [id, setid] = useState("");
     const [messages, setMessages] = useState([])
@@ -25,7 +26,6 @@ const Chat = () => {
         socket = socketIo(ENDPOINT, { transports: ['websocket'] });
 
         socket.on('connect', () => {
-            alert('Connected');
             setid(socket.id);
 
         })
@@ -67,7 +67,7 @@ const Chat = () => {
         <div className="chatPage">
             <div className="chatContainer">
                 <div className="header">
-                    <h2>17Moons Chat</h2>
+                    <h2>17 Moons Chat</h2>
                     <a href="/"> <img src={closeIcon} alt="Close" /></a>
                 </div>
                 <ReactScrollToBottom className="chatBox">
